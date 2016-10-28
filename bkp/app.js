@@ -14,9 +14,9 @@ var starter = angular.module('starter', ['ionic', 'ngCordova'])
         if (window.StatusBar) {
             StatusBar.styleDefault();
         }
-        db = $cordovaSQLite.openDB({name: "my25.db"});//mudar na hora de enviar celular
+        db = $cordovaSQLite.openDB({name: "my22.db"});//mudar na hora de enviar celular
         //db=window.openDatabase("nomeDoBancoDeDados5.db", "1.0", "Nome", 200000);
-        $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS projetos (id INTEGER PRIMARY KEY, nome text UNIQUE, prioridade text, dataProjeto date)");
+        $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS projetos (id INTEGER PRIMARY KEY, nome text UNIQUE, prioridade text, dataProjeto text)");
 
     });
 })
@@ -31,7 +31,7 @@ starter.controller('DBController', function($scope, $cordovaSQLite) {
         var query = "insert into projetos (nome, prioridade,dataProjeto) values (?,?,?)";
 
         $cordovaSQLite.execute(db,query,[nome, prioridade, dataProjeto]).then(function(result) {
-            $scope.resultado = "Tudo certo!";
+            $scope.resultado = "Opa! Não deu certo";
         }, function(error){
             $scope.resultado = "Opa! Não deu certo";
         });
@@ -75,7 +75,7 @@ starter.controller('DBController', function($scope, $cordovaSQLite) {
         $scope.listaProjetos = [];
         var query = "delete from projetos where nome = ?";
         $cordovaSQLite.execute(db,query,[nome]).then(function(result) {
-            $scope.resultado = "Tudo certo!";
+            $scope.resultado = "Opa! Não deu certo";
         }, function(error){
             $scope.resultado = "Opa! Não deu certo";
         });
@@ -86,7 +86,7 @@ starter.controller('DBController', function($scope, $cordovaSQLite) {
          console.log("Vou fazer update");
         var query = "update projetos set nome = ? where prioridade = ?";
         $cordovaSQLite.execute(db,query,[nome,prioridade]).then(function(result) {
-            $scope.resultado = "Tudo certo!";
+            $scope.resultado = "Opa! Não deu certo";
         }, function(error){
             $scope.resultado = "Opa! Não deu certo";
         });
@@ -96,7 +96,7 @@ starter.controller('DBController', function($scope, $cordovaSQLite) {
         $scope.listaProjetos = [];
         var query = "delete from projetos";
         $cordovaSQLite.execute(db,query,[]).then(function(result) {
-            $scope.resultado ="Tudo certo!";
+            $scope.resultado = "Opa! Não deu certo";
         }, function(error){
             $scope.resultado = "Opa! Não deu certo";
         });
