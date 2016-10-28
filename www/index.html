@@ -69,12 +69,36 @@
             <div class="hide-on-keyboard-open">
               <ion-list>
                 <ion-item ng-repeat="projeto in listaProjetos">
-                    {{projeto.nome | uppercase}} {{projeto.prioridade | uppercase}} {{projeto.dataProjeto}}
-                    <ion-option-button class="button-assertive icon ion-trash-a" ng-click='delete(projeto.nome)'></ion-option-button>
+                  <div class="item item-thumbnail-left">
+                  <img src="tarefa.png">
+                  <h2>Nome: {{projeto.nome | uppercase}}</h2>
+                  <p>Prioridade: {{projeto.prioridade | uppercase}} </p>
+                  <p>Data:  {{projeto.dataProjeto}}</p>
+
+                  <ion-option-button class="button-assertive icon ion-trash-a" ng-click='delete(projeto.nome)'></ion-option-button>
+                  </div>
+
                 </ion-item>
               </ion-list>
             </div>
+
+
+
+
+
+
+
+
         </ion-content>
+        <!--<ion-list>
+            <button ion-item *ngFor="let item of listaProjetos" >
+              <ion-icon [name]="item.icon" item-left></ion-icon>
+              {{item.nome}}
+              <div class="item-note" item-right>
+                {{item.prioridade}}
+              </div>
+            </button>
+        </ion-list>-->
 
     </ion-pane>
 </body>
