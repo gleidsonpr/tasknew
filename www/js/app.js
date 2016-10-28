@@ -14,7 +14,7 @@ var starter = angular.module('starter', ['ionic', 'ngCordova'])
         if (window.StatusBar) {
             StatusBar.styleDefault();
         }
-        db = $cordovaSQLite.openDB({name: "my2.db"});//mudar na hora de enviar celular
+        db = $cordovaSQLite.openDB({name: "my22.db"});//mudar na hora de enviar celular
         //db=window.openDatabase("nomeDoBancoDeDados5.db", "1.0", "Nome", 200000);
         $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS projetos (id INTEGER PRIMARY KEY, nome text UNIQUE, prioridade text, dataProjeto date)");
 
